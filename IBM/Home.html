@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Services</title>
+    <link rel="stylesheet" href="csss/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#ayurvedic">Ayurvedic</a></li>
+                <li><a href="#exercise">Exercise Specialists</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to Our Medical Services</h1>
+            <h2>Select Your Specialist</h2>
+            <div class="specialist-container">
+                
+                <div class="specialist" id="doctors">
+                    <h3>Doctors</h3>
+                    <p>Find a medical doctor for your healthcare needs.</p>
+                    <button onclick="navigateToSection('doctorsSection')">Learn More</button>
+                </div>
+            
+                <div class="specialist" id="ayurvedic">
+                    <a href="Ayurvedic.html">
+                    <h3>Ayurvedic</h3>
+                    <p>Discover traditional Ayurvedic treatments.</p>
+                    <button onclick="navigateToSection('ayurvedicSection')">Learn More</button>
+                </a>
+                </div>
+               
+                <div class="specialist" id="exercise">
+                    <h3>Exercise Specialists</h3>
+                    <p>Get advice from professional exercise specialists.</p>
+                    <button onclick="navigateToSection('exerciseSection')">Learn More</button>
+                </div>
+          
+            </div>
+        </section>
+
+        <section id="doctorsSection" class="specialist-info">
+            <h3>Doctors</h3>
+            <p>Information about doctors and the services they provide.</p>
+        </section>
+
+        <section id="ayurvedicSection" class="specialist-info">
+            <h3>Ayurvedic</h3>
+            <p>Information about Ayurvedic treatments and specialists.</p>
+        </section>
+
+        <section id="exerciseSection" class="specialist-info">
+            <h3>Exercise Specialists</h3>
+            <p>Information about exercise specialists and fitness programs.</p>
+        </section>
+
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Medical Services. All rights reserved.</p>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
