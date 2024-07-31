@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Doctors</title>
+    <link rel="stylesheet" href="csss/Ayurvedic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Ayurveda</a></li>
+                <li><a href="#doctors">Our Doctors</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#herbs">Herbs Blog</a></li>
+                <li><a href="#appointment">Appointment</a></li>
+                <li><a href="#consultation">Consultation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="carousel">
+                <div class="carousel-slide" style="background-image: url('images/OIP\ \(3\).jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('images/download\ \(3\).jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('images/th\ \(2\).jpg');"></div>
+            </div>
+            <div class="welcome-text">
+                <h1>Welcome to Our Ayurvedic Services</h1>
+                <h2>Experience the Healing Power of Ayurveda</h2>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Ayurveda</h2>
+            <p>Ayurveda is an ancient system of medicine that originated in India. It focuses on natural treatments and holistic health.</p>
+        </section>
+
+        <section id="doctors">
+            <h2>Our Doctors</h2>
+            <div class="doctor-container">
+                <div class="doctor">
+                    <img src="images/OIP (7).jpg" alt="Doctor 1">
+                    <h3>Dr. A. Sharma</h3>
+                    <p>Specialist in Panchakarma and Herbal Medicine</p>
+                </div>
+                <div class="doctor">
+                    <img src="images/OIP (8).jpg" alt="Doctor 2">
+                    <h3>Dr. B. Verma</h3>
+                    <p>Expert in Ayurvedic Nutrition and Detoxification</p>
+                </div>
+                <div class="doctor">
+                    <img src="images/OIP (9).jpg" alt="Doctor 3">
+                    <h3>Dr. C. Reddy</h3>
+                    <p>Renowned for Ayurvedic Surgery and Therapies</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"The treatments I received were life-changing. Highly recommend this clinic!"</p>
+                    <p>- S. Gupta</p>
+                </div>
+                <span class="lifecareimg">
+                <img src="images/OIP (15).jpg" />
+               </span>
+                <div class="testimonial">
+                    <p>"The doctors are very knowledgeable and caring. I feel rejuvenated."</p>
+                    <p>- R. Singh</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="herbs">
+            <h2>Herbs Blog</h2>
+            <div class="herb-container">
+                <div class="herb">
+                    <img src="images/download (2).jpg"/>
+                    <h3>Ashwagandha</h3>
+                    <p>Ashwagandha is a powerful herb known for its ability to reduce stress and improve overall health.</p>
+                </div>
+                <div class="herb">
+                    <img src="images/OIP (11).jpg"/>
+                    <h3>Turmeric</h3>
+                    <p>Turmeric has anti-inflammatory properties and is used to treat a variety of conditions.</p>
+                </div>
+                <div class="herb">
+                    <img src="images/OIP (12).jpg"/>
+                    <h3>Neem</h3>
+                    <p>Neem is known for its antibacterial properties and is used in many skin care treatments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="name"> Doctor-Name:</label>
+                    <input type="text" id="name" name="DoctorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+
+        <section id="consultation">
+            <h2>Consultation</h2>
+            <p>Connect with our Ayurvedic experts for personalized advice and treatment plans. Fill out the form below to schedule a consultation.</p>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="consultationName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="consultationEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Concerns:</label>
+                    <textarea id="consultationMessage" name="message" required></textarea>
+                </div>
+                <button type="submit">Get Consultation</button>
+            </form>
+        </section>
+
+       
+    </main>
+    <footer>
+        <p>&copy; 2024 Ayurvedic Services. All rights reserved.</p>
+    </footer>
+    <script src="js/ayurvedic.js"></script>
+</body>
+</html>
