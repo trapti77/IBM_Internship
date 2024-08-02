@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Specialist Doctors</title>
+    <link rel="stylesheet" href="csss/Fitness.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="" alt="" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#exercises">Exercises</a></li>
+                    <li><a href="#suggestions">Suggestions</a></li>
+                    <li><a href="#appointment">Appointment</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Welcome to Exercise Specialist Doctors</h1>
+            <p>Your path to better health and fitness starts here.</p>
+        </div>
+    </section>
+
+    <section id="exercises" class="container">
+        <h2>Types of Exercises We Offer</h2>
+        <div class="exercise-list">
+            <div class="exercise-item">
+                <img src="images/exercise.jpg" alt="Aerobic Exercises">
+                <h3>Aerobic Exercises</h3>
+                <p>Walking, Running/Jogging, Cycling, Swimming</p>
+            </div>
+            <div class="exercise-item">
+                <img src="images/strength.jpg" alt="Strength Training">
+                <h3>Strength Training</h3>
+                <p>Weightlifting, Resistance Band Exercises, Bodyweight Exercises</p>
+            </div>
+            <div class="exercise-item">
+                <img src="images/OIP (1).jpg" alt="Flexibility Exercises">
+                <h3>Flexibility Exercises</h3>
+                <p>Yoga, Stretching Routines</p>
+            </div>
+            <div class="exercise-item">
+                <img src="images/OIP (14).jpg" alt="Balance Exercises">
+                <h3>Balance Exercises</h3>
+                <p>Tai Chi, Balance Board Exercises</p>
+            </div>
+            <div class="exercise-item">
+                <img src="images/download (4).jpg" alt="Rehabilitation Exercises">
+                <h3>Rehabilitation Exercises</h3>
+                <p>Post-Injury Recovery, Chronic Condition Management</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="suggestions" class="container">
+        <h2>Exercise Specialist Suggestions</h2>
+        <div class="suggestion">
+        <ul>
+            <li>Start Slow: Begin with low-intensity exercises and gradually increase the intensity.</li>
+            <li>Consistency is Key: Regular exercise is more beneficial than sporadic intense workouts.</li>
+            <li>Listen to Your Body: Avoid pushing yourself too hard and rest when needed.</li>
+            <li>Stay Hydrated: Drink plenty of water before, during, and after exercise.</li>
+        </ul>
+       </div>
+    </section>
+
+    <section id="appointment" class="container">
+        <h2>Ask a Question or Make an Appointment</h2>
+        <form id="appointmentForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="question">Question/Appointment Request:</label>
+            <textarea id="question" name="question" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="confirmation" style="display:none;">Thank you! Your request has been submitted.</p>
+    </section>
+
+    <section id="doctors" class="container">
+        <h2>Meet Our Exercise Specialists</h2>
+        <div class="doctors-list">
+            <div class="doctor-item">
+                <img src="images/OIP (16).jpg" alt="Dr. John Smith">
+                <h3>Dr. John Smith</h3>
+                <p>Specialist in Sports Medicine and Rehabilitation</p>
+            </div>
+            <div class="doctor-item">
+                <img src="images/OIP (18).jpg" alt="Dr. Emily Johnson">
+                <h3>Dr. Emily Johnson</h3>
+                <p>Expert in Cardiovascular Fitness and Strength Training</p>
+            </div>
+            <div class="doctor-item">
+                <img src="images/OIP (17).jpg" alt="Dr. Robert Lee">
+                <h3>Dr. Robert Lee</h3>
+                <p>Renowned Yoga and Flexibility Instructor</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Exercise Specialist Doctors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -151,11 +151,15 @@ header a:hover {
     align-items: center;
 }
 
+#testimonials h2{
+    margin-left: 5%;
+    margin-top: 1px;
+}
 #testimonials .lifecareimg img{
    border-radius: 50%;
    margin-top: 100px;
-   margin-left: 100px;
-   margin-right: 100px;
+   margin-left: 50px;
+   margin-right: 50px;
    width: 50px;
 }
 
@@ -168,7 +172,7 @@ header a:hover {
 .testimonial {
     max-width: 300vw;
     margin: 2px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 20px;
     background-color: hsl(118, 84%, 88%);
 }
