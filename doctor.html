@@ -1,97 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor</title>
+    <title>Doctors Page</title>
     <link rel="stylesheet" href="doctor.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-----------------------------------------------------NAVIGATION------------------------------->
-    <nav>
-        <div class="query">
-            <a href="doctor.html">Doctor</a>
-            <a href="#">Hypothesis</a>
-            <a href="#" class="active">Fitness</a>
-            <p class="ll">Health & Fitness</p>
-        </div>
-    </nav>
-    <!-----------------------------------------------------QUERY FORM-------------------------------->
-    <div class="container">
-        <div class="main">
-            <h1>QUERY FORM</h1>
-            <hr color="green" size="10" width="1000px">
-            <div class="in">
-                <!--<i style="font-size:24px" class="fa">&#xf007;</i><input type="text" placeholder="Name" required><br><br>
-                <i style="font-size:20px" class="fa">&#xf0e0;</i><input type="email" placeholder="Email"
-                    required><br><br>
-                <i style="font-size:24px" class="fa">&#xf095;</i><input type="number" placeholder="Mobile Number"
-                    required><br><br>
-                <textarea name="text" id="txt" cols="25" rows="5" placeholder="Messages"
-                    style="font-size: medium;"></textarea><br><br>-->
-                <label>Name : </label> <input type="text" placeholder="enter petient name" required class="info"><br>
-                <label>Mobile : </label> <input type="text" placeholder="enter mobile numer" required class="info"><br>
-                <label>Email : </label> <input type="text" placeholder="enter email" required class="info"><br>
-                <label>Gender : </label> Male <input type="radio" name="g"> Female <input type="radio" name="g"><br>
-                <label>Age : </label><input type="number" placeholder="enter age" required min="1" max="90"
-                    class="info"><br>
-                <label>Address : </label><br><textarea name="text" id="txt" cols="25" rows="3"
-                    placeholder="address.."></textarea><br>
-                <label>Problem : </label><br><textarea name="text" id="txt" cols="25" rows="3"
-                    placeholder="write your problem..."></textarea>
-                <button class="btn1">Submit</button>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">petient experience</a></li>
+                <li><a href="#doctors">Our Doctors</a></li>
+                <li><a href="#appointment">Appointment</a></li>
+                <li><a href="#consultation">feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="carousel">
+                <div class="carousel-slide" style="background-image: url('https://media.licdn.com/dms/image/D4D12AQEXlRxdVsJasg/article-cover_image-shrink_720_1280/0/1671696175217?e=2147483647&v=beta&t=v66KLfAy31Ga1nmvnxUIGjpcPkuTW5gd44Uw9aN3Npk');"></div>
+                <div class="carousel-slide" style="background-image: url('https://media.licdn.com/dms/image/D4D12AQEXlRxdVsJasg/article-cover_image-shrink_720_1280/0/1671696175217?e=2147483647&v=beta&t=v66KLfAy31Ga1nmvnxUIGjpcPkuTW5gd44Uw9aN3Npk');"></div>
+                <div class="carousel-slide" style="background-image: url('https://media.licdn.com/dms/image/D4D12AQEXlRxdVsJasg/article-cover_image-shrink_720_1280/0/1671696175217?e=2147483647&v=beta&t=v66KLfAy31Ga1nmvnxUIGjpcPkuTW5gd44Uw9aN3Npk);"></div>
             </div>
-            <div class="im"><img src="https://i.pinimg.com/736x/b9/97/a5/b997a530822d0f2c03259070d4590d45.jpg" alt="">
+            <div class="welcome-text">
+                <h1>Welcome To Our Doctor Lab</h1>
+                <h2>Book And Meet With Doctore </h2>
             </div>
-        </div>
-    </div>
-    <!----------------------------------------------------FOOTER---------------------------------------------->
-    <footer>
-        <div id="mainfooter">
-            <p>Questons?Call 000-000-000-0000</p>
-            <div id="footer">
-                <ul>
-                    <li><a href="#">Social Media</a></li>
-                    <li><a href="#"><i style="font-size:24px" class="fa">&#xf08c;</i></a></li>
-                    <li><a href="#"><i style="font-size:24px" class="fa">&#xf09a;</i></a></li>
-                    <li><a href="#"><i style="font-size:24px" class="fa">&#xf099;</i></a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Problems</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Speed Test</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Cookie Preferences</a></li>
-                    <li><a href="#">Legal Notices</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Ways to see </a></li>
-                    <li><a href="#">Corporate Inforamtion</a></li>
-                    <li><a href="#">Only on Health & Fitness</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Media Centre</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-</body>
+        </section>
 
-</html>
+        <section id="about">
+            <h2>petient experience</h2>
+            <div class="petient-container">
+                <div class="petient">
+                    <img src="https://www.techtarget.com/rms/onlineimages/patient%20engagement_g1030235686_topicdesktop_375X125.jpg" alt="Doctor 1">
+                    <h3>How training boosts home health caregiver, aide workforce</h3>
+                    <p>A California-based grant program boosted training access for home health caregivers, family caregivers and home-based
+                    supportive care for an aging population.<span class="read">Continue Reading</span></p>
+                </div>
+                <div class="petient">
+                    <img src="https://www.techtarget.com/rms/onlineimages/health_g1250152635_topicdesktop_375X125.jpg" alt="Doctor 2">
+                    <h3>How do health IT vendors use patient family advisory councils?</h3>
+                    <p>Patient and family advisory councils (PFACs) aren't just a hospital mainstay anymore, as health IT vendors host them to
+                    gain user insights.<span class="read">Continue Reading</span>   </p>
+                </div>
+                <div class="petient">
+                    <img src="https://www.techtarget.com/rms/onlineimages/virtual%20health_a702120815_topicdesktop_375X125.jpg" alt="Doctor 3">
+                    <h3>Low language access limits patient appointment scheduling</h3>
+                    <p>Researchers say low access to cancer care is due to poor language access during the appointment scheduling process.
+                    <span class="read">Continue Reading</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors">
+            <h2>Our Doctors</h2>
+            <div class="doctor-container">
+                <div class="doctor">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/028/287/555/small_2x/an-indian-young-female-doctor-isolated-on-green-ai-generated-photo.jpg" alt="Doctor 1">
+                    <h3>Dr. A. Sharma</h3>
+                    <p>Specialist in Panchakarma and Herbal Medicine</p>
+                </div>
+                <div class="doctor">
+                    <img src="https://media.istockphoto.com/id/177373093/photo/indian-male-doctor.jpg?s=612x612&w=0&k=20&c=5FkfKdCYERkAg65cQtdqeO_D0JMv6vrEdPw3mX1Lkfg=" alt="Doctor 2">
+                    <h3>Dr. B. Verma</h3>
+                    <p>Expert in Ayurvedic Nutrition and Detoxification</p>
+                </div>
+                <div class="doctor">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/030/928/115/small_2x/handsome-indian-doctor-generate-ai-photo.jpg" alt="Doctor 3">
+                    <h3>Dr. C. Reddy</h3>
+                    <p>Renowned for Ayurvedic Surgery and Therapies</p>
+                </div>
+            </div>
+        </section>
+<!--
+        <section id="herbs">
+            <h2>our medicines</h2>
+            <div class="herb-container">
+            <div class="slider">
+                <div class="im" id="img">
+                    <img src='https://www.shutterstock.com/image-vector/various-meds-pills-capsules-blisters-260nw-1409823341.jpg' />
+                </div>
+            </div>
+            </div>
+        </section>-->
+<!----------------------------------------appointment form-------------------------------->
+       <section id="appointment">
+            <h2>Book an Appointment</h2>
+        <div class="container">
+            <div class="main">
+                <div class="in">
+                    <label>Name : </label> <input type="text" placeholder="enter petient name" required class="info"><br><br>
+                    <label>Mobile : </label> <input type="text" placeholder="enter mobile numer" required class="info"><br><br>
+                    <label>Email : </label> <input type="text" placeholder="enter email" required class="info"><br><br>
+                    <label>Gender : </label> Male <input type="radio" name="g"> Female <input type="radio" name="g"><br><br>
+                    <label>Age : </label><input type="number" placeholder="enter age" required min="1" max="90"
+                        class="info"><br><br>
+                    <label>Address : </label><br><textarea name="text" id="txt" cols="25" rows="3"
+                        placeholder="address.."></textarea><br><br>
+                    <label>Problem : </label><br><textarea name="text" id="txt" cols="25" rows="3"
+                        placeholder="write your problem..."></textarea>
+                    <button class="btn1">Submit</button>
+                </div>
+                <div class="im"><img src="https://i.pinimg.com/736x/b9/97/a5/b997a530822d0f2c03259070d4590d45.jpg" alt="">
+                </div>
+        </div>
+        </div>
+        </section>
+<!---------------------------------------------------------end-------------------------------------------------->
+        <section id="consultation">
+            <h2>Feedback</h2>
+            <p>Give your valuable feedback Below abd your Experience</p>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="consultationName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="consultationEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Feedback :</label>
+                    <textarea id="consultationMessage" name="message" required></textarea>
+                </div>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Doctor Services. All rights reserved.</p>
+    </footer>
+    <script src="ayurvedic.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

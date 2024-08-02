@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #00509e;
+    background-color: #006400;
     padding: 10px 0;
 }
 
@@ -30,7 +30,7 @@ nav ul li a {
 }
 
 header a:hover {
-    color: skyblue;
+    color: #ffcc00;
 }
 
 /* Home Section */
@@ -46,7 +46,7 @@ header a:hover {
     width: 95%;
     height: 500px;
     overflow: hidden;
-    background: url('../OIP\ \(4\).jpg') no-repeat;
+    background:url('../OIP\ \(4\).jpg') no-repeat;
     background-size: cover;
 }
 
@@ -60,21 +60,10 @@ header a:hover {
 }
 
 @keyframes slide {
-    0% {
-        left: 0;
-    }
-
-    33.33% {
-        left: 0;
-    }
-
-    66.66% {
-        left: -100%;
-    }
-
-    100% {
-        left: -200%;
-    }
+    0% { left: 0; }
+    33.33% { left: 0; }
+    66.66% { left: -100%; }
+    100% { left: -200%; }
 }
 
 .carousel-slide:nth-child(2) {
@@ -96,12 +85,12 @@ header a:hover {
 .welcome-text h1 {
     font-size: 48px;
     margin: 0;
-    color: #00509e;
+    color: #ffcc00;
 }
 
 .welcome-text h2 {
     font-size: 24px;
-    color: orangered;
+    color: #fff;
 }
 
 /* About Section */
@@ -112,7 +101,7 @@ header a:hover {
 }
 
 #about h2 {
-    color: #00509e;
+    color: #006400;
 }
 
 #about p {
@@ -120,41 +109,7 @@ header a:hover {
     max-width: 600px;
     margin: 0 auto;
 }
-/* Petient experience section*/
-#about {
-    padding: 50px;
-    text-align: center;
-}
-.read{
-    color: #008c9e;
-    cursor: pointer;
-}
-.petient-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
-.petient{
-    margin: 20px;
-    text-align: center;
-}
-
-.petient img {
-    border-radius: 5px;
-    width: 300px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.petient h3 {
-    color: #00509e;
-}
-
-.petient p {
-    font-size: 16px;
-    color: #333;
-}
 /* Doctors Section */
 #doctors {
     padding: 50px;
@@ -180,14 +135,51 @@ header a:hover {
 }
 
 .doctor h3 {
-    color: #00509e;
+    color: #006400;
 }
 
 .doctor p {
     font-size: 16px;
     color: #333;
 }
-/* our medicines */
+
+/* Testimonials Section */
+#testimonials {
+    padding: 20px;
+    background-color: #f0fff2;
+    text-align: center;
+    align-items: center;
+}
+
+#testimonials .lifecareimg img{
+   border-radius: 50%;
+   margin-top: 100px;
+   margin-left: 100px;
+   margin-right: 100px;
+   width: 50px;
+}
+
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.testimonial {
+    max-width: 300vw;
+    margin: 2px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: hsl(118, 84%, 88%);
+}
+
+.testimonial p {
+    font-size: 18px;
+    font-style: italic;
+    color: #333;
+}
+
+/* Herbs Blog Section */
 #herbs {
     padding: 50px;
     text-align: center;
@@ -205,7 +197,7 @@ header a:hover {
 }
 
 .herb h3 {
-    color: #00509e;
+    color: #006400;
 }
 
 .herb p {
@@ -215,8 +207,8 @@ header a:hover {
 
 /* Appointment Section */
 #appointment {
-    width: 80%;
-    margin-left: 8%;
+    width: 30%;
+    margin-left: 30%;
     padding: 50px 50px;
     background-color: #f0f8ff;
     text-align: center;
@@ -230,7 +222,7 @@ header a:hover {
     display: flex;
     margin-left: 5%;
     font-weight: 500;
-    color: #00509e;
+    color: #006400;
 }
 
 #appointmentForm input {
@@ -242,7 +234,7 @@ header a:hover {
 }
 
 #appointmentForm button {
-    background-color: #00509e;
+    background-color: #006400;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -251,7 +243,7 @@ header a:hover {
 }
 
 #appointmentForm button:hover {
-    background-color: #00509e;
+    background-color: #004d00;
 }
 
 /* Consultation Section */
@@ -260,7 +252,7 @@ header a:hover {
     padding: 50px;
     margin: 10px;
     margin-left: 30%;
-    text-align: center;
+    text-align: center; 
     background-color: #f0f8ff;
 }
 
@@ -271,7 +263,7 @@ header a:hover {
 #consultationForm label {
     display: flex;
     font-weight: 500;
-    color: #00509e;
+    color: #006400;
 }
 
 #consultationForm input,
@@ -284,7 +276,7 @@ header a:hover {
 }
 
 #consultationForm button {
-    background-color: #00509e;
+    background-color: #006400;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -293,7 +285,7 @@ header a:hover {
 }
 
 #consultationForm button:hover {
-    background-color: #00509e;
+    background-color: #004d00;
 }
 
 /* Contact Section */
@@ -310,7 +302,7 @@ header a:hover {
 #contactForm label {
     display: block;
     font-weight: 500;
-    color: #00509e;
+    color: #006400;
 }
 
 #contactForm input,
@@ -323,7 +315,7 @@ header a:hover {
 }
 
 #contactForm button {
-    background-color: #00509e;
+    background-color: #006400;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -332,100 +324,10 @@ header a:hover {
 }
 
 #contactForm button:hover {
-    background-color: #00509e;
+    background-color: #004d00;
 }
 
 /* Footer */
 footer {
     text-align: center;
-}
-/*--------------------------appointment css----------------------------*/
-.main {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    background-color: white;
-    display: flex;
-    width: 70%;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    border: 5px solid white;
-    border-radius: 5px;
-    margin-left: 15%;
-    box-shadow: 5px 8px 5px 5px #888888;
-}
-
-.in {
-    flex-basis: 40%;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-top: 10px;
-}
-
-.so {
-    flex-basis: 50%;
-    margin-bottom: 10px;
-    margin-left: 50%;
-}
-
-#txt {
-    margin-left: 50px;
-}
-
-.fa {
-    gap: 10px;
-    padding-left: 10px;
-}
-
-.im {
-    flex-basis: 50%;
-    margin-bottom: 150px;
-}
-
-.im img {
-    display: block;
-    width: 70%;
-    margin: auto;
-    border-radius: 10px;
-}
-
-.btn1 {
-    margin-top: 50px;
-    background-color:#00509e;
-    color: white;
-    height: 50px;
-    width: 200px;
-    margin-left: 50px;
-    border: 2px solid #00509e;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
-input::placeholder {
-    font: 2px;
-}
-
-.info {
-    height: 20px;
-    width: 50%;
-
-
-}
-
-input:hover {
-    border: 2px solid #00509e;
-    border-radius: 5px;
-}
-
-/*--------------------slider--------------------------*/
-.slider {
-    width: 50%;
-    height: 50px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    margin: 20px auto;
-}
-
- .imgg{
-    width: 100%;
-    height:50px;
 }
