@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
-import HomeScreen from '../Screens/HomeScreen';
+import TodaySchedulePage from '../HomeScreen/Maindata'
 import AddPatient from '../Add_Patient_Detail/PatientDetail';
-import ProfileScreen from '../UpdateProfile/UpdateProfile';
 import FileDockScreen from '../Screens/FileDockScreen';
 import TopNavigationBar from './TopNavigation';
+import AppNavigation from '../UpdateProfile/Navigate';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +28,8 @@ const BottomNavigationBar = () => {
       <TopNavigationBar />
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
-          name="Home"
-          component={HomeScreen}
+          name="TodaySchedulePage"
+          component={TodaySchedulePage}
           options={{
             tabBarIcon: ({ focused }) => (
               <Image
@@ -79,8 +79,8 @@ const BottomNavigationBar = () => {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
+          name="AppNavigation"
+          component={AppNavigation}
           options={{
             tabBarIcon: ({ focused }) => (
               <Image

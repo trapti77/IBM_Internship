@@ -1,37 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  Animated,
+  Dimensions,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ToggleButton from '../FilterButton/ToggleButton';
+
+const { height: screenHeight } = Dimensions.get('window');
 
 const ProfileScreen = () => {
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [editing, setEditing] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
   const [profileData, setProfileData] = useState({
-    name: 'John Doe',
-    description: 'Lorem ipsum dolor sit amet.',
+    name: 'Anjali',
+    description: ' hii',
     mobile: '+1234567890',
-    email: 'john.doe@example.com',
+    email: 'anjali@gmail.com',
     address: '123 Main St, City, Country',
-    dayAndTime: 'Monday - Friday, 9:00 AM - 5:00 PM',
   });
+
   const navigation = useNavigation();
+  const animation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Fetch profile data from database on component mount
-    // Replace with actual database fetch logic
-  }, []);
+    Animated.timing(animation, {
+      toValue: showSettings ? 1 : 0,
+      duration: 300,
+      useNativeDriver: false,
+    }).start();
+  }, [showSettings]);
 
   const handleSave = (key) => {
     // Save the updated data to the database
     setEditing(null);
   };
 
-  const handleLogout = () => {
-    Alert.alert('Logout', 'You have been logged out.');
+
+  const handleSettingsPress = (screen) => {
+    // Close settings menu
+    setShowSettings(false);
   };
+  
 
   const renderInfoContainer = (label, value, key) => (
-    <View style={styles.infoContainer}>
+    <View style={styles.infoContainer} key={key}>
       <Text style={styles.label}>{label}</Text>
       {editing === key ? (
         <TextInput
@@ -50,7 +73,10 @@ const ProfileScreen = () => {
         style={styles.editButton}
         onPress={() => setEditing(editing === key ? null : key)}
       >
-        <Icon name={editing === key ? 'checkmark' : 'pencil'} size={20} color="#007AFF" />
+        <Image
+          source={require('../../assets/Edit_icon.png')}
+          style={styles.editImage}
+        />
       </TouchableOpacity>
       {editing === key && (
         <TouchableOpacity
@@ -62,6 +88,11 @@ const ProfileScreen = () => {
       )}
     </View>
   );
+
+  const animatedTranslateY = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [screenHeight, 0],
+  });
 
   return (
     <KeyboardAvoidingView
@@ -79,38 +110,82 @@ const ProfileScreen = () => {
         >
           <Text style={styles.profileButtonText}>Update Profile Photo</Text>
         </TouchableOpacity>
-        {renderInfoContainer('Name', profileData.name, 'name')}
-        {renderInfoContainer('Description', profileData.description, 'description')}
-        {renderInfoContainer('Mobile', profileData.mobile, 'mobile')}
-        {renderInfoContainer('Email', profileData.email, 'email')}
-        {renderInfoContainer('Address', profileData.address, 'address')}
-        {renderInfoContainer('Day and Time', profileData.dayAndTime, 'dayAndTime')}
+        {Object.entries(profileData).map(([key, value]) =>
+          renderInfoContainer(
+            key.charAt(0).toUpperCase() + key.slice(1),
+            value,
+            key
+          )
+        )}
+        <TouchableOpacity
+            style={styles.infoContainer}
+            onPress={() => navigation.navigate('ScheduleCalendar')}
+                >
+                  <Text style={styles.label}>Day and Time</Text>
+                  <Text style={styles.value}>{profileData.Day_time}</Text>
+              </TouchableOpacity>
+
+
         <TouchableOpacity
           style={styles.settingsButton}
-          onPress={() =>  navigation.navigate('Settings')}
+          onPress={() => setShowSettings(!showSettings)}
         >
           <Text style={styles.settingsButtonText}>Settings</Text>
           <Icon
-            name={settingsOpen ? 'chevron-up' : 'chevron-down'}
+            name={showSettings ? 'chevron-down' : 'chevron-forward'}
             size={20}
             color="#000"
             style={styles.settingsIcon}
           />
         </TouchableOpacity>
-        {settingsOpen && (
-          <View style={styles.settingsContainer}>
-            <Text style={styles.settingsOption}>Change Password</Text>
-            <Text style={styles.settingsOption}>Privacy Settings</Text>
-            <Text style={styles.settingsOption}>Notification Settings</Text>
-            <Text style={styles.settingsOption}>Account Settings</Text>
-          </View>
-        )}
-        <TouchableOpacity
-          style={styles.logoutButton}
-          onPress={handleLogout}
+        <Animated.View style={[styles.settingsMenu, { transform: [{ translateY: animatedTranslateY }] }]}>
+          <View style={styles.settingsOption}>
+
+          <TouchableOpacity
+          style={styles.settingsMenuItem}
+          onPress={() => setShowSettings(!showSettings)}
         >
-          <Text style={styles.logoutButtonText}>Logout</Text>
+          <Text style={styles.settingsMenuItemText}>Settings</Text>
+          <Icon
+            name={showSettings ? 'chevron-down' : 'chevron-forward'}
+            size={20}
+            color="#000"
+            style={styles.settingsIcon}
+          />
         </TouchableOpacity>
+            {['AddManager', 'ChangePassword', 'NotificationSettings', 'BookingHistory', 'NeedHelp', 'Analysis', 'Logout'].map((screen, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.settingsMenuItem}
+              >
+                <Text style={styles.settingsMenuItemText}>
+                  {screen.replace(/([A-Z])/g, ' $1').trim()}
+                </Text>
+                <Icon
+                  name={showSettings ? 'chevron-forward' : 'chevron-down'}
+                  size={20}
+                  color="#000"
+                  style={styles.settingsIcon}
+                />
+              </TouchableOpacity>
+            ))}
+            <ToggleButton />
+          </View>
+          <TouchableOpacity
+            style={styles.backToHomeButton}
+            onPress={() => navigation.navigate('TodaySchedulePage')}
+          >
+            <Text style={styles.backToHomeText}>Back To Home</Text>
+          </TouchableOpacity>
+        </Animated.View>
+        {!showSettings && (
+          <TouchableOpacity
+            style={styles.logoutButton}
+            onPress={() => navigation.navigate('LoginScreen')}
+          >
+            <Text style={styles.logoutButtonText}>Logout</Text>
+          </TouchableOpacity>
+        )}
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -130,13 +205,15 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     marginBottom: 10,
-    marginTop:10,
+    marginTop: 10,
     backgroundColor: '#fff',
+  },
+  updateProfileButton: {
+    marginBottom: 10,
   },
   profileButtonText: {
     color: '#000',
     fontSize: 16,
-    marginBottom:10,
   },
   infoContainer: {
     flexDirection: 'row',
@@ -166,8 +243,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
+  largeInput: {
+    minHeight: 60,
+  },
   editButton: {
     marginLeft: 10,
+  },
+  editImage: {
+    width: 20,
+    height: 20,
   },
   saveButton: {
     backgroundColor: '#007AFF',
@@ -192,31 +276,57 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingsIcon: {
-    marginLeft: 10,
+    marginRight: 10,
   },
-  settingsContainer: {
-    marginTop: 1,
-    width: '100%',
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 5,
+  settingsMenu: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '103%',
+    backgroundColor: '#c7f8f6',
+    padding: 5,
   },
   settingsOption: {
-    fontSize: 16,
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  settingsMenuItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft:20,
+    borderColor:'#ccc',
+    borderWidth:0.5,
     paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    paddingHorizontal: 10,
+  },
+  settingsMenuItemText: {
+    fontSize: 16,
+    color: '#000',
+  },
+  backToHomeButton: {
+    borderWidth: 1,
+    borderColor: '#0A8E8A',
+    marginTop: 100,
+    backgroundColor: '#fff',
+  },
+  backToHomeText: {
+    textAlign: 'center',
+    color: '#0A8E8A',
+    padding: 10,
+    fontSize: 15,
   },
   logoutButton: {
     marginTop: 20,
     padding: 10,
     width: '100%',
-    backgroundColor: '#007AFF',
+    backgroundColor: '#0A8E8A',
     borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'center',
-    marginBottom:50,
+    justifyContent: 'center',
+    marginBottom: 50,
   },
   logoutButtonText: {
     color: '#fff',

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { RadioButton, List } from 'react-native-paper';
+import { RadioButton } from 'react-native-paper';
+import FilterButton from '../FilterButton/FilterButton';
 import {
   validateName,
   validateMobile,
@@ -9,8 +10,10 @@ import {
   validateGender,
   validateDiabetes,
   validateBp,
+  validateBP,
+  validatePulse,
+  validateWeight, // Assuming this exists for weight validation
 } from './Validation';
-import { ScrollView } from 'react-native';
 
 export default function AddPatient() {
   const [name, setName] = useState('');
@@ -20,9 +23,11 @@ export default function AddPatient() {
   const [gender, setGender] = useState('');
   const [diabetes, setDiabetes] = useState('');
   const [bp, setBp] = useState('');
+  const [BP, setBP] = useState('');
   const [pulse, setPulse] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState({});
+  const [filterVisible, setFilterVisible] = useState(false);
 
   const handleSubmit = () => {
     // Reset errors
@@ -32,18 +37,24 @@ export default function AddPatient() {
     const nameError = validateName(name);
     const mobileError = validateMobile(mobile);
     const ageError = validateAge(age);
+    const weightError = validateWeight(weight); // Added weight validation
     const genderError = validateGender(gender);
     const diabetesError = validateDiabetes(diabetes);
     const bpError = validateBp(bp);
+    const BPError = validateBp(BP);
+    const pulseError = validatePulse(pulse); // Corrected to validatePulse
 
     // Collect all errors
     const newErrors = {
       name: nameError,
       mobile: mobileError,
       age: ageError,
+      weight: weightError,
       gender: genderError,
       diabetes: diabetesError,
       bp: bpError,
+      BP: BPError,
+      pulse: pulseError,
     };
 
     // Check if any errors exist
@@ -60,9 +71,18 @@ export default function AddPatient() {
     <SafeAreaView>
     <ScrollView>
     <View style={styles.wrapper}>
-      <View style={styles.headerview}>
-    <Text style={styles.header}>Patient Details</Text>
-    </View>
+          <View style={styles.headerContainer}>
+          <View style={styles.filterButtonContainer}>
+              <FilterButton onPress={() => setFilterVisible(!filterVisible)} />
+            </View>
+          </View>
+
+          {filterVisible && (
+            <View style={styles.filterContainer}>
+              <Text>Filter options go here</Text>
+            </View>
+          )}
+        <Text style={styles.header}>Patient Details</Text>
       <View style={styles.container}>
         <View style={styles.formGroup}>
           <Text style={styles.text}>Patient Name</Text>
@@ -102,7 +122,7 @@ export default function AddPatient() {
             onChangeText={setWeight}
             keyboardType="numeric"
           />
-          {errors.age && <Text style={styles.errorText}>{errors.age}</Text>}
+          {errors.weight && <Text style={styles.errorText}>{errors.weight}</Text>}
         </View>
         </View>
         <View style={styles.formGroup}>
@@ -119,16 +139,17 @@ export default function AddPatient() {
                 <RadioButton.Item label="Other" value="other" />
               </View>
             </View>
+            {errors.gender && <Text style={styles.errorText}>{errors.gender}</Text>}
         <View style={styles.row}>
         <View style={styles.formGroup}>
           <Text style={styles.text} >BP</Text>
           <TextInput
-            style={[styles.smallInput, errors.age ? styles.errorBorder : null]}
-            value={bp}
-            onChangeText={setBp}
+            style={[styles.smallInput, errors.BP ? styles.errorBorder : null]}
+            value={BP}
+            onChangeText={setBP}
             keyboardType="numeric"
           />
-          {errors.age && <Text style={styles.errorText}>{errors.age}</Text>}
+          {errors.BP && <Text style={styles.errorText}>{errors.BP}</Text>}
         </View>
         <View style={styles.formGroup}>
           <Text style={styles.text} >Pulse</Text>
@@ -138,11 +159,10 @@ export default function AddPatient() {
             onChangeText={setPulse}
             keyboardType="numeric"
           />
-          {errors.age && <Text style={styles.errorText}>{errors.age}</Text>}
+          {errors.pulse && <Text style={styles.errorText}>{errors.pulse}</Text>}
         </View>
         </View>
           </RadioButton.Group>
-          {errors.gender && <Text style={styles.errorText}>{errors.gender}</Text>}
         </View>
         <View style={styles.formGrouprow}>
           <Text style={styles.text} >Sugar</Text>
@@ -155,8 +175,8 @@ export default function AddPatient() {
             <Picker.Item label="Yes" value="Yes" />
             <Picker.Item label="No" value="No" />
           </Picker>
-          {errors.diabetes && <Text style={styles.errorText}>{errors.diabetes}</Text>}
         </View>
+        {errors.diabetes && <Text style={styles.errorText}>{errors.diabetes}</Text>}
         <View style={styles.formGrouprow}>
           <Text style={styles.text} >BP</Text>
           <Picker
@@ -168,8 +188,8 @@ export default function AddPatient() {
             <Picker.Item label="Yes" value="Yes" />
             <Picker.Item label="No" value="No" />
           </Picker>
-          {errors.bp && <Text style={styles.errorText}>{errors.bp}</Text>}
         </View>
+        {errors.bp && <Text style={styles.errorText}>{errors.bp}</Text>}
         <View style={styles.formGroup}>
           <Text style={styles.text} >Description (Optional)</Text>
           <TextInput
@@ -177,10 +197,12 @@ export default function AddPatient() {
             value={description}
             onChangeText={setDescription}
           />
-          {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
+        
         </View>
-        <Button title="Save" onPress={handleSubmit} style={styles.saveButton}/>
       </View>
+      <TouchableOpacity onPress={handleSubmit} style={styles.saveButton}>
+      <Text style={styles.ButtonText}>Save</Text>
+    </TouchableOpacity>
     </View>
     </ScrollView>
     </SafeAreaView>
@@ -190,36 +212,51 @@ export default function AddPatient() {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1, // Take up full screen height
-    justifyContent: 'center', // Center vertically
-    alignItems: 'center', // Center horizontally
-    backgroundColor: '#c7f8f6', // Optional: background color for the wrapper
+    flex: 1,  
+    alignItems: 'center', 
+    backgroundColor: '#c7f8f6', 
   },
-  container: {
-    width: '95%', // Width of the form container
-    padding: 20,
-    backgroundColor: 'white', // Background color of the form
-    shadowColor: '#000', // Optional: shadow effect
+  headerContainer: {
+    alignSelf:'flex-end',
+    flexDirection: 'row',
+    margin:5,
+    justifyContent: 'space-between',
+  },
+  header: {
+    alignSelf:'flex-start',
+    fontSize: 16,
+    padding: 1,
+    width: 120,
+    marginBottom:5,
+    marginLeft:10,
+    borderRadius: 50,
+    textAlign: 'center',
+    color:'#fff',
+    backgroundColor: '#0A8E8A',
+  },
+  filterContainer: {
+    width: '95%',
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 5, // For Android shadow
-    borderRadius:10,
-    marginBottom:80,
+    elevation: 5,
+    marginBottom: 20,
   },
-  headerview:{
-    marginRight:'65%',
-  },
-  header: {
-    fontSize:16,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom:10,
-    padding:1,
-    width:120,
-    borderRadius:50,
-    textAlign: 'center',
-    backgroundColor:'aqua' // Center the header text
+  container: {
+    width: '95%',
+    padding: 20,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+    borderRadius: 10,
+    marginBottom: 20,
   },
   text:{
     fontSize:17,
@@ -286,7 +323,15 @@ const styles = StyleSheet.create({
     borderColor: 'red',
   },
   saveButton:{
-    width:50,
-    backgroundColor:'red',
+    width:150,
+    padding:10,
+    borderRadius:50,
+    backgroundColor:'#0A8E8A',
+    marginBottom:70,
   },
+  ButtonText:{
+    textAlign:'center',
+    fontSize:20,
+    color:'#fff',
+  }
 });
